@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Level Card</title>
+    <meta name="author" content="Celemim">
+    <meta name="description" content="Mock up of the State leveling card">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css">
+    <script src="script.js" type="module"></script>
+</head>
+
+<body>
+    <main>
+        <button id="dm" type="button">💡</button>
+        <div id="card">
+            <div id="middle">
+                <span id="img-box"><span id="temp-img">Loading...</span></span>
+
+                <div id="names-box" class="text">
+                    <h1 id="display-name">[Display Name]</h1>
+
+                    <h2 id="username-box">(<span id="username">[username]</span>)</h2>
+                </div>
+
+                <h2 id="xp-box">
+                    <span id="level-box" class="text">Level <span id="level">00</span></span>
+
+                    <span class="text"><span id="xp-current">123,456</span>/<span id="xp-next">789,123</span></span>
+
+                    <span id="xp-bar"><span id="xp-fill"></span></span>
+                </h2>
+
+                <div id="roles-box"></div>
+
+                <div id="icon">
+                    <svg viewBox="0 0 16 16">
+                        <path fill="#878839" d="M2.5 9h-1v1h1v1h1v1h1v1h1v1h2v-1h2v-1h1v-1h2v-1h1V9h1V8h1V7h-1V6h-1V5h-1" />
+                        <path fill="#a7a848" d="M.5 8v1h1V7h1V6h2V5h1V4h2V3h1V2h2v1h1v1h1v2h1v1h1v1z" />
+                        <path fill="#DADDAA" d="M6.5 12v1h-1v-1h-1v-1h-1v-1h-1V9h-1V8h1V7h2V6h3V4h2V3h1v2h2v2h1v1h-1v2h-1V9h-5" />
+                        <path fill="#EAEAC7" d="M8.5 4V3h1v1h2v4h2v1h-2v1h-1v1h-2v1h-3v-1h-1v-1h-1V9h-1V8h1V7h2V5h3" />
+                        <path fill="#BBC177" d="M8.5 12v-1h1v1h-3v1h1v-1" />
+                        <path fill="#FCFCF2" d="M8.5 4h2v1h1v1h1v3h-2v1h-1v1h-2v1h-1v-1h-1v-1h-1V9h-1V8h1V7h1V6h1V5h2" />
+                    </svg>
+
+                    <div id="role">[Role Icon]</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <form action="./">
+            <h2>Set card info</h2>
+
+            <fieldset>
+                <label>Display name<input type="text" name="displayname" id="set-display-name" title="1-32 characters" placeholder="Ish" minlength="1" maxlength="32"></label>
+
+                <label>Username<input type="text" name="username" id="set-username" title="2-32 characters | lowercase a-z0-9_. | no '..'" minlength="2" maxlength="32" placeholder="ish13c" pattern="^(?!.*\.\.)[a-z0-9\._]{2,32}$"></label>
+            </fieldset>
+
+            <fieldset><label>Profile picture URL<input type="url" name="img" id="set-img" placeholder="https://example.com/image.png"></label></fieldset>
+
+            <details>
+                <summary>Add roles...</summary>
+                <fieldset id="roles">
+
+                    <div id="role-list-admin" class="role-section">
+                        <h3>Administration</h3>
+                        <label><input type="checkbox" name="roles" value="r|1053193948035817553"> Server Manager</label>
+                        <label><input type="checkbox" name="roles" value="r|1157877548810784780"> Asst. Server Manager</label>
+                        <label><input type="checkbox" name="roles" value="r|967185275837091860"> Administration</label>
+                        <label><input type="checkbox" name="roles" value="r|935982786450432050"> Development</label>
+                        <label><input type="checkbox" name="roles" value="r|957510324511199262"> Former Administration</label>
+                    </div>
+
+                    <div id="role-list-apps" class="role-section">
+                        <h3>Applications team</h3>
+                        <label><input type="checkbox" name="roles" value="r|935779510874427442"> Applications Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|1147770526694133850"> Applications Supervisor</label>
+                        <label><input type="checkbox" name="roles" value="r|935974515366830131"> Application Team</label>
+                        <label><input type="checkbox" name="roles" value="r|938107735080333422"> Applications Volunteer</label>
+                    </div>
+
+                    <div id="role-list-build" class="role-section">
+                        <h3>Build team</h3>
+                        <label><input type="checkbox" name="roles" value="r|1166527848371195934"> Mapmaking Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|939681325915451484"> Build Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|915333552462241793"> Builder</label>
+                        <label><input type="checkbox" name="roles" value="r|968947352205422612"> Terraforming Team</label>
+                        <label><input type="checkbox" name="roles" value="r|893554146647629886"> Tree Team</label>
+                        <label><input type="checkbox" name="roles" value="r|1173551342392979496"> Build Applicant</label>
+                        <label><input type="checkbox" name="roles" value="r|1173552802841251922"> Tree Team Applicant</label>
+                    </div>
+
+                    <div id="role-list-mod" class="role-section">
+                        <h3>Chat Mod team</h3>
+                        <label><input type="checkbox" name="roles" value="r|926975182160138240"> Chat Mod Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|968947772483047534"> Senior Chat Mod</label>
+                        <label><input type="checkbox" name="roles" value="r|1116604183202779227"> Mod of the Month</label>
+                        <label><input type="checkbox" name="roles" value="r|906011291917877318"> Chat Mod</label>
+                        <label><input type="checkbox" name="roles" value="r|968947328956375060"> Trial Chat Mod</label>
+                        <label><input type="checkbox" name="roles" value="r|969679361043206195"> Mod Applicant</label>
+                        <label><input type="checkbox" name="roles" value="r|1116192439707897886"> Former Chat Mod</label>
+                    </div>
+
+                    <div id="role-list-comm" class="role-section">
+                        <h3>Community team</h3>
+                        <label><input type="checkbox" name="roles" value="r|1113564943934029884"> Community Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|1185216374642049064"> Comm. Team Manager</label>
+                        <label><input type="checkbox" name="roles" value="r|1103362528353988639"> Community Team </label>
+                    </div>
+
+                    <div id="role-list-event" class="role-section">
+                        <h3>Event staff</h3>
+                        <label><input type="checkbox" name="roles" value="r|1051915066301227108"> Event Staff Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|1161319176112177162"> Event Staff Supervisor</label>
+                        <label><input type="checkbox" name="roles" value="r|991109791034392676"> Event Staff</label>
+                        <label><input type="checkbox" name="roles" value="r|1181695903308984431"> Event Staff Trainee</label>
+                    </div>
+
+                    <div id="role-list-other" class="role-section">
+                        <h3>Other teams</h3>
+                        <label><input type="checkbox" name="roles" value="r|935982500793180251"> Production</label>
+                        <label><input type="checkbox" name="roles" value="r|1223717798493028383"> Editor</label>
+                        <label><input type="checkbox" name="roles" value="r|1052008162762432562"> State Artist </label>
+                        <label><input type="checkbox" name="roles" value="r|882675224015949855"> Tester</label>
+                        <label><input type="checkbox" name="roles" value="r|908194886698795030"> Public Help</label>
+                    </div>
+
+                    <div id="role-list-acting" class="role-section">
+                        <h3>Acting roles</h3>
+                        <label><input type="checkbox" name="roles" value="r|1183939009450348604"> Acting Lead</label>
+                        <label><input type="checkbox" name="roles" value="r|1183938791656935465"> S2.5 Actor</label>
+                        <label><input type="checkbox" name="roles" value="r|1021258665229029386"> S2 Actor</label>
+                        <label><input type="checkbox" name="roles" value="r|955984233778786324"> 1.7 Actor</label>
+                        <label><input type="checkbox" name="roles" value="r|1272067752894664755"> ish - VA</label>
+                        <label><input type="checkbox" name="roles" value="r|987827377637843027"> Jaw - VA</label>
+                    </div>
+
+                    <div id="role-list-winner" class="role-section">
+                        <h3>Winner roles</h3>
+                        <label><input type="checkbox" name="roles" value="r|1193028059276783696"> TripleWinner</label>
+                        <label><input type="checkbox" name="roles" value="r|989255327503482930"> Event Winner</label>
+                        <label><input type="checkbox" name="roles" value="r|1114402922067931156"> Contest Winner</label>
+                        <label><input type="checkbox" name="roles" value="r|1193690125176143962"> State Awards Winner '24</label>
+                        <label><input type="checkbox" name="roles" value="r|1193690060810367046"> State Awards Winner '23</label>
+                        <label><input type="checkbox" name="roles" value="r|1193689973887615089"> State Awards Winner '22</label>
+                    </div>
+
+                    <div id="role-list-donor" class="role-section">
+                        <h3>Donator roles</h3>
+                        <label><input type="checkbox" name="roles" value="r|981273371587280959"> 🐋</label>
+                        <label><input type="checkbox" name="roles" value="r|981273371587280958"> 🐟</label>
+                        <label><input type="checkbox" name="roles" value="r|981273371587280957"> 🦐</label>
+                        <label><input type="checkbox" name="roles" value="r|1129662088344776724"> Duolingo Club</label>
+                        <label><input type="checkbox" name="roles" value="r|981273371587280956"> YT Member</label>
+                        <label><input type="checkbox" name="roles" value="r|883413471784497164"> Server Booster</label>
+                    </div>
+
+                    <div id="role-list-level" class="role-section">
+                        <h3>Level roles</h3>
+                        <label><input type="checkbox" name="roles" value="r|1279925231510880349"> Leaderboard Leader</label>
+                        <label><input type="checkbox" name="roles" value="r|908867866495975474"> Level 100+</label>
+                        <label><input type="checkbox" name="roles" value="r|1122588281721335899"> Level 90</label>
+                        <label><input type="checkbox" name="roles" value="r|1122588271436906546"> Level 80</label>
+                        <label><input type="checkbox" name="roles" value="r|906513921245069353"> Level 70</label>
+                        <label><input type="checkbox" name="roles" value="r|1122588273575993415"> Level 60</label>
+                        <label><input type="checkbox" name="roles" value="r|906329186338209813"> Level 50</label>
+                        <label><input type="checkbox" name="roles" value="r|1122588276176453725"> Level 40</label>
+                        <label><input type="checkbox" name="roles" value="r|922211240690995201"> Level 30</label>
+                        <label><input type="checkbox" name="roles" value="r|906329125667614750"> Level 20</label>
+                        <label><input type="checkbox" name="roles" value="r|1122588278168760495"> Level 15</label>
+                        <label><input type="checkbox" name="roles" value="r|906329059997413417"> Level 10</label>
+                        <label><input type="checkbox" name="roles" value="r|906328953759875072"> Level 5</label>
+                        <label><input type="checkbox" name="roles" value="r|1122588268706406400"> Level 1</label>
+                    </div>
+
+                    <div id="role-list-partic" class="role-section">
+                        <h3>Participant roles</h3>
+                        <label><input type="checkbox" name="roles" value="r|881295750204641300"> Season 1 Citizen</label>
+                        <label><input type="checkbox" name="roles" value="r|909629233440108575"> Season 1.5 Islander</label>
+                        <label><input type="checkbox" name="roles" value="r|941860441070645338"> Season 1.7 Prison Guard</label>
+                        <label><input type="checkbox" name="roles" value="r|912799256602099723"> Season 1.7 Inmate</label>
+                        <label><input type="checkbox" name="roles" value="r|912601823091761162"> Season 2 Citizen</label>
+                        <label><input type="checkbox" name="roles" value="r|1178089578817667112"> Season 2.5 Island 2</label>
+                        <label><input type="checkbox" name="roles" value="r|1178089552066388089"> Season 2.5 Island 1</label>
+                        <label><input type="checkbox" name="roles" value="r|1137868074566029493"> Season 2.5</label>
+                        <label><input type="checkbox" name="roles" value="r|1185206004783263784"> Season 2.7 Government</label>
+                        <label><input type="checkbox" name="roles" value="r|1176040455813746688"> Season 2.7</label>
+                        <label><input type="checkbox" name="roles" value="r|1057393312249675806"> Contestant</label>
+                    </div>
+
+                    <div id="role-list-misc" class="role-section">
+                        <h3>Other roles</h3>
+                        <label><input type="checkbox" name="roles" value="r|908845748819472414"> Stupid</label>
+                        <label><input type="checkbox" name="roles" value="r|908854241563648002"> ish+</label>
+                        <label><input type="checkbox" name="roles" value="r|1052358850499588267"> Verified</label>
+                        <label><input type="checkbox" name="roles" value="r|980649213593530390"> Artist</label>
+                        <label><input type="checkbox" name="roles" value="r|1074151256450420746"> Horn</label>
+                        <label><input type="checkbox" name="roles" value="r|1159556067873804348"> 4-21 to ish in 8-Ball</label>
+                        <label><input type="checkbox" name="roles" value="r|1164263632511705179"> 1-8 to ish in Cup Pong</label>
+                        <label><input type="checkbox" name="roles" value="r|1104059240789856297"> Guild Member</label>
+                        <label><input type="checkbox" name="roles" value="r|1014351299132784772"> Editor Candidate</label>
+                        <label><input type="checkbox" name="roles" value="r|942142394709729290"> IRL Friends</label>
+                        <label><input type="checkbox" name="roles" value="r|998415444123865168"> ProGamerDude</label>
+                        <label><input type="checkbox" name="roles" value="r|1204285114494877756"> 𝕏</label>
+                    </div>
+
+                </fieldset>
+            </details>
+
+            <fieldset>
+                <label>Level<input type="number" name="level" id="set-level" placeholder="50"></label>
+
+                <label>Current XP<input type="number" name="currentxp" id="set-xp-current" placeholder="1,234"></label>
+
+                <label>XP for next level<input type="number" name="nextxp" id="set-xp-next" placeholder="5,678"></label>
+            </fieldset>
+
+            <input type="submit" value="Set card info" id="set-card">
+        </form>
+    </footer>
+</body>
+
+</html>
